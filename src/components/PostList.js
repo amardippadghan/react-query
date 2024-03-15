@@ -17,25 +17,20 @@ const PostList = () => {
 
   const {
     data: tagsData = [], // Provide a default value of an empty array
-    isLoading: isTagsLoading,
-    isError: tagError,
-    error: tagErr,
   } = useQuery({
     queryKey: ["tags"],
     queryFn: () => fetchTags(),
   });
 
-  const {
-    mutate,
-    isError: PostError,
-    isPending,
-    error: isPostError,
-    reset,
-  } = useMutation({
-    mutationFn: addPost(),
-  });
-
-  console.log(postData);
+  // const {
+  //   mutate,
+  //   isError: PostError,
+  //   isPending,
+  //   error: isPostError,
+  //   reset,
+  // } = useMutation({
+  //   mutationFn: addPost(),
+  // });
 
   return (
     <div className="container">
@@ -47,14 +42,12 @@ const PostList = () => {
           name="title"
         />
         <div className="tags">
-          {tagsData.map((tag) => (
+          {tagsData?.map((tag) => (
             <div key={tag}>
               <input name={tag} id={tag} type="checkbox" />
               <label htmlFor={tag}>{tag}</label>
             </div>
           ))}
-          {isTagsLoading && <div>Loading...</div>}
-          {tagError && <div>{tagErr?.message}</div>}
         </div>
       </form>
 
