@@ -30,12 +30,12 @@ const PostList = () => {
           name="title"
         />
         <div className="tags">
-          {tagsData?.map((tag) => {
-            <div key={tag}>
+          {tagsData?.map((tag, index) => (
+            <div key={index}>
               <input name={tag} id={tag} type="checkbox" />
               <label htmlFor={tag}>{tag}</label>
-            </div>;
-          })}
+            </div>
+          ))}
         </div>
       </form>
 
