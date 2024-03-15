@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const fetchPosts = async (page) => {
   const response = await fetch(
     `http://localhost:3000/posts?_sort=-id&${
@@ -14,9 +16,9 @@ const fetchPosts = async (page) => {
 };
 
 const fetchTags = async () => {
-  const response = await fetch("http://localhost:3000/tags");
-  const tagsData = await response.json();
-  return tagsData;
+  const tagsData = await axios.get("http://localhost:3000/tags");
+  console.log("axios data ", tagsData.data);
+  return tagsData.data;
 };
 
 const addPost = async (post) => {

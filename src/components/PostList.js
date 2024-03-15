@@ -15,22 +15,10 @@ const PostList = () => {
     retry: 3,
   });
 
-  const {
-    data: tagsData = [], // Provide a default value of an empty array
-  } = useQuery({
+  const { data: tagsData } = useQuery({
     queryKey: ["tags"],
     queryFn: () => fetchTags(),
   });
-
-  // const {
-  //   mutate,
-  //   isError: PostError,
-  //   isPending,
-  //   error: isPostError,
-  //   reset,
-  // } = useMutation({
-  //   mutationFn: addPost(),
-  // });
 
   return (
     <div className="container">
@@ -42,12 +30,12 @@ const PostList = () => {
           name="title"
         />
         <div className="tags">
-          {tagsData?.map((tag) => (
+          {tagsData?.map((tag) => {
             <div key={tag}>
               <input name={tag} id={tag} type="checkbox" />
               <label htmlFor={tag}>{tag}</label>
-            </div>
-          ))}
+            </div>;
+          })}
         </div>
       </form>
 
