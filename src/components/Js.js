@@ -10,6 +10,7 @@ function Js() {
       },
       id: 1,
       isActive: true,
+      status: "pending",
       age: 25,
     },
     {
@@ -20,6 +21,7 @@ function Js() {
       },
       id: 2,
       isActive: false,
+      status: "pending",
       age: 30,
     },
     {
@@ -30,6 +32,7 @@ function Js() {
       },
       id: 3,
       isActive: true,
+      status: "pending",
       age: 22,
     },
     {
@@ -40,6 +43,7 @@ function Js() {
       },
       id: 4,
       isActive: false,
+      status: "pending",
       age: 35,
     },
     {
@@ -50,22 +54,59 @@ function Js() {
       },
       id: 5,
       isActive: true,
+      status: "pending",
       age: 28,
     },
   ];
 
-  for (const user of User) {
-    console.log(user.name);
-  }
+  // for (const user of User) {
+  //   console.log(user.name);
+  // }
 
-  User.forEach((element) => {
-    console.log("for each ", element.name);
-  });
+  // User.forEach((element) => {
+  //   console.log("for each ", element.name);
+  // });
+
+  const names = [];
 
   for (let i = 0; i < User.length; i++) {
-    console.log("for loop ", User[i].name);
-    console.log("inner loop ", User[i].ishave.address);
+    names.push(User[i].name);
   }
+
+  console.log("names ", names);
+
+  const age = [];
+
+  const filterAge = User.filter((e) => {
+    return e.age > 25;
+  });
+
+  const newage = filterAge.map((e) => {
+    age.push({
+      name: e.name,
+      age: e.age,
+    });
+  });
+  console.log("age", age);
+
+  const trueArray = [];
+
+  const isTrue = User.filter((e) => {
+    return e.isActive === true;
+  });
+
+  const newarr = isTrue.map((e) => {
+    trueArray.push({
+      name: e.name,
+      isActive: e.isActive,
+    });
+  });
+
+  console.log(trueArray);
+
+  // names.forEach((e) => {
+  //   console.log("names in foreach", e);
+  // });
 
   return <div>Js</div>;
 }
