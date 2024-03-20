@@ -1,11 +1,11 @@
 import React from "react";
-import PostList from "./components/PostList";
+import Js from "./components/Js";
 
 function App() {
   return (
     <div>
-      <h2 className="title">my post</h2>
-      <PostList />
+      App
+      <Js />
     </div>
   );
 }

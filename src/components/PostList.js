@@ -49,7 +49,7 @@ const PostList = () => {
                 id={tag}
                 type="checkbox"
                 onChange={(e) => {
-                  setPost({ ...post, tags: e.target.value });
+                  setPost({ ...post, tags: e.target.name });
                 }}
               />
               <label htmlFor={tag}>{tag}</label>
