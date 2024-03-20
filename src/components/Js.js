@@ -32,7 +32,7 @@ function Js() {
       },
       id: 3,
       isActive: true,
-      status: "pending",
+      status: "working",
       age: 22,
     },
     {
@@ -43,7 +43,7 @@ function Js() {
       },
       id: 4,
       isActive: false,
-      status: "pending",
+      status: "completed",
       age: 35,
     },
     {
@@ -54,7 +54,7 @@ function Js() {
       },
       id: 5,
       isActive: true,
-      status: "pending",
+      status: "working",
       age: 28,
     },
   ];
@@ -67,46 +67,64 @@ function Js() {
   //   console.log("for each ", element.name);
   // });
 
-  const names = [];
+  // const names = [];
 
-  for (let i = 0; i < User.length; i++) {
-    names.push(User[i].name);
-  }
+  // for (let i = 0; i < User.length; i++) {
+  //   names.push(User[i].name);
+  // }
 
-  console.log("names ", names);
+  // console.log("names ", names);
 
-  const age = [];
+  // const age = [];
 
-  const filterAge = User.filter((e) => {
-    return e.age > 25;
-  });
+  // const filterAge = User.filter((e) => {
+  //   return e.age > 25;
+  // });
 
-  const newage = filterAge.map((e) => {
-    age.push({
-      name: e.name,
-      age: e.age,
-    });
-  });
-  console.log("age", age);
+  // const newage = filterAge.map((e) => {
+  //   age.push({
+  //     name: e.name,
+  //     age: e.age,
+  //   });
+  // });
+  // console.log("age", age);
 
-  const trueArray = [];
+  // const trueArray = [];
 
-  const isTrue = User.filter((e) => {
-    return e.isActive === true;
-  });
+  // const isTrue = User.filter((e) => {
+  //   return e.isActive === true;
+  // });
 
-  const newarr = isTrue.map((e) => {
-    trueArray.push({
-      name: e.name,
-      isActive: e.isActive,
-    });
-  });
+  // const newarr = isTrue.map((e) => {
+  //   trueArray.push({
+  //     name: e.name,
+  //     isActive: e.isActive,
+  //   });
+  // });
 
-  console.log(trueArray);
+  // console.log(trueArray);
 
   // names.forEach((e) => {
   //   console.log("names in foreach", e);
   // });
+
+  const filterStatus = [];
+
+  const WorkingFilter = User.filter((e) => {
+    return e.status === "working" || e.status === "completed";
+  });
+  WorkingFilter.forEach((e) => {
+    filterStatus.push({
+      name: e.name,
+      status: e.status,
+    });
+  });
+
+  console.log(filterStatus);
+
+  for (let i = 0; i < filterStatus.length; i++) {
+    console.log("forloop ", filterStatus[i].name);
+  }
 
   return <div>Js</div>;
 }
