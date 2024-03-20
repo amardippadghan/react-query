@@ -108,23 +108,43 @@ function Js() {
   //   console.log("names in foreach", e);
   // });
 
-  const filterStatus = [];
+  // const filterStatus = [];
 
-  const WorkingFilter = User.filter((e) => {
-    return e.status === "working" || e.status === "completed";
+  // const WorkingFilter = User.filter((e) => {
+  //   return e.status === "working" || e.status === "completed";
+  // });
+  // WorkingFilter.forEach((e) => {
+  //   filterStatus.push({
+  //     name: e.name,
+  //     status: e.status,
+  //   });
+  // });
+
+  // console.log(filterStatus);
+
+  // for (let i = 0; i < filterStatus.length; i++) {
+  //   console.log("forloop ", filterStatus[i].name);
+  // }
+
+  const names = User.filter((e) => e.status === "working")
+    .sort((user1, user2) => {
+      return user1.age < user2 ? 1 : -1;
+    })
+    .map((e) => e.name);
+
+  console.log("names ", names);
+
+  const sortedUser = User.sort((user1, user2) => {
+    if (user1.status === "working" && user2.status !== "working") {
+      return -1; // user1 should come before user2
+    } else if (user1.status !== "working" && user2.status === "working") {
+      return 1; // user2 should come before user1
+    } else {
+      return 0; // no change in order
+    }
   });
-  WorkingFilter.forEach((e) => {
-    filterStatus.push({
-      name: e.name,
-      status: e.status,
-    });
-  });
 
-  console.log(filterStatus);
-
-  for (let i = 0; i < filterStatus.length; i++) {
-    console.log("forloop ", filterStatus[i].name);
-  }
+  console.log(sortedUser);
 
   return <div>Js</div>;
 }
